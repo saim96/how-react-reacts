@@ -20,6 +20,14 @@ export default function EmojiClicker() {
       return prevEmojis.filter((e) => e.id !== id); // returns an array with not ! having the element we want to delete
     });
   };
+  const changeAllToUnicorn = () => {
+    //changing all emojis to unicorn
+    setEmojis((prevEmojis) => {
+      return prevEmojis.map((e) => {
+        return { ...e, emoji: "🦄" };
+      });
+    });
+  };
   return (
     <div>
       {emojis.map((e) => (
@@ -32,6 +40,7 @@ export default function EmojiClicker() {
         </span>
       ))}
       <button onClick={addEmoji}>Add Emoji</button>
+      <button onClick={changeAllToUnicorn}> Change To unicorn</button>
     </div>
   );
 }
