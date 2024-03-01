@@ -6,7 +6,7 @@ function ScoreKeeper() {
 
     setScores((oldScores) => { 
         return {...oldScores, p1Score: oldScores.p1Score + 1 };
-    } );
+    } ); //here is that the callback function receives the current state, and by convention, it is often named something like oldState or prevState to indicate that it holds the previous state
   }
   return (
     <div>

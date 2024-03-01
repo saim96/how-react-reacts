@@ -11,10 +11,10 @@ export default function WhoWins({ numPlayers = 3, target = 5 }) {
   //         })
   //     }
 
-  const incrementScore = (idx) => {
+  const incrementScore = (idx) => { // through the it's index increment function needs to know which players's scores needs to be incremented. 
     setScores((prevScores) => {
       return prevScores.map((score, i) => {
-        if (i === idx) return score + 1;
+      if (i === idx) return score + 1;
         return score;
       });
     });
@@ -27,13 +27,13 @@ export default function WhoWins({ numPlayers = 3, target = 5 }) {
     <div>
       <h1> Won Wins </h1>
       <ul>
-        {scores.map((score, idx) => {
+        {scores.map((score, idx) => { // this finds value and index in Scores Array.
           return (
             <li key={idx}>
               player {idx + 1} : {score}
               <button onClick={() => incrementScore(idx)}> +1 </button>
-             <p>{score>=target && "winner"} </p>
-            </li>
+              <p>{score >= target && "winner"} </p>
+            </li> // over here in incrementScore callback we're sending info "index" to function on which index this function is called on.
           );
         })}
       </ul>
